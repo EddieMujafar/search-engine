@@ -1,89 +1,199 @@
-# SimpleSearch - Document Search Engine
+# 🔎 Simple Search Engine
 
-A Python-based search engine that crawls, indexes, and ranks documents using TF-IDF algorithm.
+A lightweight search engine built in Python that can **crawl, index, and rank documents** using classic information retrieval techniques like **Inverted Indexing** and **TF-IDF / BM25 ranking**.
 
-## Features
+---
 
-- **Tokenization & Preprocessing**: Lowercase conversion, stop word removal, stemming
-- **Inverted Index**: Fast term-based document lookup
-- **TF-IDF Ranking**: Relevance scoring based on term frequency and inverse document frequency
-- **Phrase Search**: Use quotes for exact phrase matching
-- **Web Crawler**: Crawl and index web pages
-- **CLI Interface**: Interactive command-line search
+## 🚀 Features
 
-## Installation
+* ✅ Tokenization & text preprocessing
+* ✅ Inverted index for fast lookups
+* ✅ TF-IDF ranking
+* ✅ BM25 ranking (improved relevance)
+* ✅ Keyword-based search queries
+* ✅ Ranked results by relevance score
+* ✅ CLI interface for searching
+* ⭐ (Bonus) Basic web crawler support
 
-```bash
-pip install requests
-```
+---
 
-## Usage
-
-### Interactive Mode
-
-```bash
-python search_engine.py
-```
-
-### Command-Line Mode
-
-```bash
-# Index a directory
-python search_engine.py index ./documents
-
-# Search documents
-python search_engine.py search "machine learning"
-
-# Crawl web pages
-python search_engine.py crawl https://example.com
-
-# Show statistics
-python search_engine.py stats
-
-# Clear index
-python search_engine.py clear
-```
-
-## CLI Commands
-
-| Command | Description |
-|---------|-------------|
-| `index <dir>` | Index all text files in a directory |
-| `search <query>` | Search indexed documents |
-| `crawl <url>` | Crawl web pages starting from a URL |
-| `stats` | Show index statistics |
-| `clear` | Clear the index |
-| `help` | Show help message |
-| `exit` | Exit the program |
-
-## Search Tips
-
-- Use quotes for exact phrase: `"artificial intelligence"`
-- Longer, more specific queries yield better results
-- Results are ranked by TF-IDF relevance score
-
-## Ranking Logic
-
-The search engine uses **TF-IDF (Term Frequency - Inverse Document Frequency)** for ranking:
-
-1. **Term Frequency (TF)**: Measures how often a term appears in a document
-   - `TF = term_count / total_terms_in_document`
-
-2. **Inverse Document Frequency (IDF)**: Measures how unique a term is across all documents
-   - `IDF = log(total_documents / documents_containing_term)`
-
-3. **Final Score**: `TF × IDF` for each query term, summed across all terms
-
-## Project Structure
+## 📂 Project Structure
 
 ```
-search-engine/
-├── search_engine.py   # Main search engine implementation
-├── SPEC.md           # Project specification
-├── README.md         # This file
-└── sample_docs/      # Sample documents for testing
+search_engine/
+│
+├── main.py              # CLI interface
+├── preprocess.py        # Tokenization & cleaning
+├── index.py             # Inverted index implementation
+├── rank.py              # TF-IDF and BM25 ranking
+├── search.py            # Query processing
+├── storage.py           # Load documents
+├── crawler.py           # (Optional) Web crawler
+│
+├── data/
+│   └── documents.json   # Dataset
+│
+└── README.md
 ```
 
-## License
+---
 
-MIT
+## ⚙️ How It Works
+
+### 1. Preprocessing
+
+* Converts text to lowercase
+* Tokenizes into words
+* Removes common stopwords
+
+### 2. Inverted Index
+
+Maps each word to documents where it appears:
+
+```
+word → {doc_id: term_frequency}
+```
+
+This allows fast lookup of relevant documents.
+
+---
+
+### 3. Ranking Algorithms
+
+#### 🔹 TF-IDF
+
+* **TF (Term Frequency):** how often a term appears in a document
+* **IDF (Inverse Document Frequency):** importance of the term across all documents
+
+Formula:
+
+```
+Score = TF × IDF
+```
+
+---
+
+#### 🔹 BM25 (Recommended)
+
+Improves TF-IDF by:
+
+* Normalizing document length
+* Reducing bias toward long documents
+
+---
+
+### 4. Search Process
+
+1. User enters query
+2. Query is tokenized
+3. Matching documents are retrieved
+4. Scores are computed (TF-IDF / BM25)
+5. Results are ranked and displayed
+
+---
+
+## ▶️ How to Run
+
+### 1. Clone or download the project
+
+### 2. Navigate to the folder
+
+```
+cd search_engine
+```
+
+### 3. Run the program
+
+```
+python main.py
+```
+
+### 4. Example usage
+
+```
+Search: search engine
+
+Results:
+[2] Score: 2.45
+  Python is great for building a simple search engine
+```
+
+Type `exit` to quit.
+
+---
+
+## 📊 Example Dataset
+
+Located in:
+
+```
+data/documents.json
+```
+
+Example:
+
+```json
+{
+  "1": "This is a good movie with great acting",
+  "2": "Search engines use inverted indexes",
+  "3": "Python is useful for building search systems"
+}
+```
+
+---
+
+## ⚡ Performance Considerations
+
+* Uses dictionary-based indexing for fast lookups
+* Efficient term frequency counting
+* Scalable to moderately large datasets
+* Can be extended to disk-based storage
+
+---
+
+## 🌐 Bonus Features
+
+* Basic web crawler (`crawler.py`) using requests + BeautifulSoup
+* Can extract text and links from web pages
+
+---
+
+## 🚧 Limitations
+
+* Exact keyword matching only (no synonyms)
+* No stemming/lemmatization
+* No fuzzy search
+* Limited scalability for very large datasets
+
+---
+
+## 🔮 Future Improvements
+
+* Phrase search (positional index)
+* Stemming (e.g., Porter Stemmer)
+* Fuzzy matching (edit distance)
+* Web interface (Flask)
+* Persistent index storage (SQLite / disk-based)
+* Semantic search using embeddings
+
+---
+
+## 🧠 Key Concepts Used
+
+* Information Retrieval
+* Inverted Index
+* TF-IDF
+* BM25 Ranking
+* Tokenization & Text Processing
+
+---
+
+## 📜 License
+
+MIT.
+
+---
+
+## 👨‍💻 Author
+
+Developed as part of a search engine implementation task.
