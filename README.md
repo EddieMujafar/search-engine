@@ -72,6 +72,10 @@ Score = TF × IDF
 ```
 
 ---
+Picture samples:
+<img width="956" height="482" alt="Search-engine test 2" src="https://github.com/user-attachments/assets/21f771f0-c6dc-4d0f-b2cf-d77a46e437ab" />
+<img width="958" height="484" alt="Search-engine test 1" src="https://github.com/user-attachments/assets/234020a9-4821-4fe6-b9dc-2c664eb307b6" />
+
 
 #### 🔹 BM25 (Recommended)
 
