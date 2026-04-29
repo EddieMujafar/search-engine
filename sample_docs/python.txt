@@ -1,0 +1,42 @@
+Python Programming Guide
+
+Python is a high-level, interpreted programming language known for its simplicity and readability.
+
+Key Features:
+- Dynamic typing
+- Automatic memory management
+- Extensive standard library
+- Cross-platform compatibility
+
+Data Types:
+- Numbers (int, float, complex)
+- Strings
+- Lists
+- Tuples
+- Dictionaries
+- Sets
+
+Control Structures:
+- if/elif/else statements
+- for loops
+- while loops
+- try/except for error handling
+
+Functions:
+- Defined using def keyword
+- Support default arguments
+- Support keyword arguments
+- Support variable arguments (*args, **kwargs)
+
+Classes:
+- Use class keyword to define
+- Support inheritance
+- Support encapsulation
+- Support polymorphism
+
+Popular Python Libraries:
+- NumPy: Numerical computing
+- Pandas: Data analysis
+- Matplotlib: Data visualization
+- TensorFlow: Machine learning
+- Flask: Web development
